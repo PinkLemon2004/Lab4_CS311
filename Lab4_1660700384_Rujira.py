@@ -97,9 +97,10 @@ def widgetright(right) :
     return cake_label1,cake_label2,cake_label3,ent_total
 #คำนวนผลรวมของสินค้่า
 def checkout():
-    total = 0
-  
-    quantity_cake1 = int(spinquan1.get())
+    total = 0 #set ค่าของยอกรวมเริ่มต้น
+    
+    #รับจำนวนของสินค้า
+    quantity_cake1 = int(spinquan1.get()) #ได้มาจากการรับค่าจาก spinquan1 -3
     quantity_cake2 = int(spinquan2.get())
     quantity_cake3 = int(spinquan3.get())
     
@@ -109,24 +110,28 @@ def checkout():
     caketotal1.set("%0.2f"%total_cake1)
     cake_label1["text"] = caketotal1.get()
     cake_label1["fg"] = 'white'
+    
     #แสดงผลรวมเค้ก2
     total_cake2 = quantity_cake2 * 250
     caketotal2 = StringVar()
     caketotal2.set("%0.2f"%total_cake2)
     cake_label2["text"] = caketotal2.get()
     cake_label2["fg"] = 'white'
+    
     #แสดงผลรวมเค้ก3
     total_cake3 = quantity_cake3 * 380
     caketotal3 = StringVar()
     caketotal3.set("%0.2f"%total_cake3)
     cake_label3["text"] = caketotal3.get()
     cake_label3["fg"] = 'white'
+    
     #แสดงผลรวมทั้งหมด
     total = (total_cake1 + total_cake2 + total_cake3 )
     strtotal = StringVar()
     strtotal.set("%0.2f"%total)
     ent_total["text"] = strtotal.get()
     ent_total["fg"] = '#7E8DFF'
+    
 def widgetbottom(bottom):
     #ปุ่มกดออก
      btn1 = Button(bottom,text=" Exit",image=img_exit, compound='left', command=quit)
